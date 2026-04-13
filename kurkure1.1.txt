@@ -1,0 +1,158 @@
+Here’s your **complete answer in clean TEXT format** (ready to copy into record/exam) 👇
+
+---
+
+# **Q1. Technical Stack: Kubernetes & CGroup (25 Marks)**
+
+## **Objective**
+
+To demonstrate container orchestration using Kubernetes and resource management using CGroup.
+
+---
+
+## **Step 1: Verify Kubernetes Cluster Nodes**
+
+Open terminal and run:
+
+```
+kubectl get nodes
+```
+
+**Expected Output:**
+
+* Node status should be **Ready**
+
+---
+
+## **Step 2: Create Deployment using nginx Image**
+
+```
+kubectl create deployment nginx-deployment --image=nginx
+```
+
+---
+
+## **Step 3: Verify Pod Status**
+
+```
+kubectl get pods
+```
+
+For detailed information:
+
+```
+kubectl describe pod <pod-name>
+```
+
+---
+
+## **Step 4: Scale Deployment to 2 Replicas**
+
+```
+kubectl scale deployment nginx-deployment --replicas=2
+```
+
+Verify:
+
+```
+kubectl get pods
+```
+
+---
+
+## **Step 5: Expose using NodePort Service**
+
+```
+kubectl expose deployment nginx-deployment --type=NodePort --port=80
+```
+
+Check service:
+
+```
+kubectl get svc
+```
+
+Access application:
+
+```
+curl http://localhost:<NODE_PORT>
+```
+
+---
+
+## **Step 6: Create YAML File with Resource Limits**
+
+Create file: `nginx-limits.yaml`
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-limits
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-limits
+  template:
+    metadata:
+      labels:
+        app: nginx-limits
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+```
+
+---
+
+## **Step 7: Apply and Verify Configuration**
+
+Apply YAML:
+
+```
+kubectl apply -f nginx-limits.yaml
+```
+
+Verify:
+
+```
+kubectl get deployments
+kubectl get pods
+kubectl describe pod <pod-name>
+```
+
+---
+
+## **Expected Output**
+
+* Nodes → Ready
+* Pods → Running
+* Replicas → 2
+* Service → NodePort
+* Nginx page visible via curl
+* Resource limits applied successfully
+
+---
+
+## **Result**
+
+The nginx application was successfully deployed using Kubernetes. Scaling, service exposure, and resource management using CGroup were implemented successfully.
+
+---
+
+If you want:
+✅ **10-mark short answer**
+✅ **Viva questions (very important)**
+✅ **Common errors + fixes**
+
+Just tell 👍
