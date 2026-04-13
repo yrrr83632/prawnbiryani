@@ -1,0 +1,218 @@
+Q1. Technical Stack: Jenkins & GitHub (25 Marks)
+Demonstrate Continuous Integration using Jenkins and GitHub.
+Tasks to be Performed:
+1. Create a simple Java program that displays:
+o Student Name
+o Register Number
+o Message: “Jenkins Build Successful”
+2. Create a GitHub repository named: Mid1_<RegisterNumber>
+3. Upload program and make at least two commits.
+4. Configure Jenkins Freestyle Project.
+5. Integrate GitHub with Jenkins.
+6. Execute build and verify console output.
+
+
+Got it  — here’s a **FULL detailed step-by-step (like your previous one)** for your **Mid1 question**, clean and ready to copy 👇
+
+---
+
+# **Experiment: Continuous Integration using Jenkins and GitHub**
+
+## **Objective**
+
+To demonstrate Continuous Integration (CI) using Jenkins and GitHub by creating and executing a Java program.
+
+---
+
+## **Step 1: Create Java Program using VS Code**
+
+1. Open **VS Code**
+2. Click **File → New File**
+3. Save the file as: `StudentInfo.java`
+4. Paste the following code:
+
+```java id="t8r64p"
+public class StudentInfo {
+    public static void main(String[] args) {
+        System.out.println("Student Name: V BALA SANKAR");
+        System.out.println("Register Number: 23MIC0004");
+        System.out.println("Message: Jenkins Build Successful");
+    }
+}
+```
+
+5. Save the file
+
+---
+
+## **Step 2: Run Program Locally (Optional)**
+
+1. Open terminal in VS Code
+2. Run:
+
+```id="4ztvcm"
+javac StudentInfo.java
+java StudentInfo
+```
+
+3. Verify output is correct
+
+---
+
+## **Step 3: Create GitHub Repository**
+
+1. Open GitHub
+2. Click **New Repository**
+3. Enter repository name:
+   `Mid1_23MIC0004`
+4. Click **Create Repository**
+
+---
+
+## **Step 4: Upload Code to GitHub**
+
+Open terminal in your project folder and run:
+
+```bash id="o3ppg6"
+git init
+git add StudentInfo.java
+git commit -m "First commit - Java program added"
+git remote add origin https://github.com/YOUR_USERNAME/Mid1_23MIC0004.git
+git branch -M main
+git push -u origin main
+```
+
+---
+
+## **Step 5: Make Second Commit**
+
+1. Modify the Java file slightly (example: change message spacing or text)
+
+2. Run:
+
+```bash id="j06p7u"
+git commit -am "Second commit - updated program"
+git push
+```
+
+---
+
+## **Step 6: Open Jenkins Dashboard**
+
+1. Open Jenkins in browser
+2. Go to **Dashboard**
+
+---
+
+## **Step 7: Create Jenkins Freestyle Project**
+
+1. Click **New Item**
+2. Enter name:
+   `Mid1_23MIC0004`
+3. Select **Freestyle Project**
+4. Click **OK**
+
+---
+
+## **Step 8: Configure GitHub Integration**
+
+In Jenkins job configuration:
+
+1. Go to **Source Code Management**
+
+2. Select **Git**
+
+3. Enter:
+
+```id="cgfcqx"
+Repository URL:
+https://github.com/YOUR_USERNAME/Mid1_23MIC0004.git
+
+Branch:
+*/main
+```
+
+---
+
+## **Step 9: Add Build Step**
+
+1. Scroll down to **Build**
+
+2. Click **Add Build Step**
+
+3. Select **Execute Windows Batch Command**
+
+4. Paste:
+
+```bat id="rp5m48"
+echo Compiling Java Program...
+javac StudentInfo.java
+
+echo Running Java Program...
+java StudentInfo
+```
+
+---
+
+## **Step 10: Save and Build**
+
+1. Click **Save**
+2. Click **Build Now**
+
+---
+
+## **Step 11: View Console Output**
+
+1. Click the latest build
+2. Click **Console Output**
+
+---
+
+## **Step 12: Verify Output**
+
+You should see:
+
+```id="ej1n81"
+Compiling Java Program...
+Running Java Program...
+Student Name: V BALA SANKAR
+Register Number: 23MIC0004
+Message: Jenkins Build Successful
+
+Finished: SUCCESS
+```
+
+---
+
+## **Step 13: Submission Requirements**
+
+* GitHub repository link
+* Java source code
+* Jenkins job configuration screenshot
+* Jenkins console output screenshot
+* Commit history screenshot
+
+---
+
+## **Result**
+
+The Java program was successfully integrated with GitHub and executed using Jenkins. Continuous Integration was achieved successfully.
+
+---
+
+## 🔥 Final Tip
+
+✔ Git commands in Jenkins → automatic
+✔ Only you add:
+
+```
+javac StudentInfo.java
+java StudentInfo
+```
+
+---
+
+If you want next:
+✅ Viva Q&A (very important for marks)
+✅ Common errors + fixes
+✅ Ready-made screenshots for submission
