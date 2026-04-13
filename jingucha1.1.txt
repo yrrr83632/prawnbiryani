@@ -1,0 +1,151 @@
+---
+
+# **Experiment: Jenkins and GitHub Integration**
+
+## **Objective**
+
+To demonstrate Continuous Integration using GitHub and Jenkins by developing and executing a Java program.
+
+---
+
+## **Step 1: Create Java Program using VS Code**
+
+1. Open VS Code
+2. Click **File → New File**
+3. Save as: `StudentInfo.java`
+4. Paste the following code:
+
+```
+public class StudentInfo {
+    public static void main(String[] args) {
+        System.out.println("Student Name: V BALA SANKAR");
+        System.out.println("Register Number: 23MIC0004");
+        System.out.println("Message: Jenkins GitHub Integration Successful");
+    }
+}
+```
+
+5. Save the file
+
+---
+
+## **Step 2: Run Program Locally (Optional)**
+
+1. Open terminal in VS Code
+2. Run:
+
+```
+javac StudentInfo.java
+java StudentInfo
+```
+
+---
+
+## **Step 3: Upload Code to GitHub**
+
+1. Go to GitHub
+
+2. Create repository named:
+   `balasankar`
+
+3. Open terminal in project folder and run:
+
+```
+git init
+git add StudentInfo.java
+git commit -m "First commit - Java program added"
+git remote add origin https://github.com/YOUR_USERNAME/balasankar.git
+git branch -M main
+git push -u origin main
+```
+
+### Second Commit:
+
+```
+git commit -am "Second commit - updated message"
+git push
+```
+
+---
+
+## **Step 4: Configure Jenkins**
+
+1. Open Jenkins Dashboard
+2. Click **New Item**
+3. Enter name: `balasankar`
+4. Select **Freestyle Project**
+5. Click OK
+
+---
+
+## **Step 5: Connect GitHub Repository**
+
+In Jenkins configuration:
+
+Go to **Source Code Management → Git**
+
+```
+Repository URL:
+https://github.com/YOUR_USERNAME/balasankar.git
+
+Branch:
+*/main
+```
+
+---
+
+## **Step 6: Add Build Command**
+
+Go to:
+**Build → Add Build Step → Execute Windows Batch Command**
+
+Paste:
+
+```
+echo Compiling Java Program...
+javac StudentInfo.java
+
+echo Running Java Program...
+java StudentInfo
+```
+
+---
+
+## **Step 7: Build the Project**
+
+1. Click **Save**
+2. Click **Build Now**
+3. Click **Console Output**
+
+---
+
+## **Step 8: Expected Output**
+
+```
+Compiling Java Program...
+Running Java Program...
+Student Name: V BALA SANKAR
+Register Number: 23MIC0004
+Message: Jenkins GitHub Integration Successful
+
+Finished: SUCCESS
+```
+
+---
+
+## **Step 9: Submission Requirements**
+
+* GitHub repository link
+* Java source code
+* Jenkins job configuration screenshot
+* Jenkins console output screenshot
+* Commit history screenshot
+
+---
+
+## **Conclusion**
+
+The experiment successfully demonstrates Continuous Integration using GitHub and Jenkins by automatically building and executing a Java program.
+
+---
+
