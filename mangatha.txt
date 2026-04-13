@@ -1,0 +1,161 @@
+Here’s your **complete step-by-step TEXT answer** for
+**Q2. Technical Stack: Maven & JUnit 5 (25 Marks)** 👇
+
+---
+
+# **Q2. Technical Stack: Maven & JUnit 5 (25 Marks)**
+
+## **Objective**
+
+To demonstrate unit testing using Maven and JUnit 5 by creating and testing a simple CalculatorService class.
+
+---
+
+## **Step 1: Create a Maven Project**
+
+Open terminal and run:
+
+```id="7q9p2k"
+mvn archetype:generate -DgroupId=com.example -DartifactId=calculator-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+
+Navigate into project:
+
+```id="8k3jzp"
+cd calculator-app
+```
+
+---
+
+## **Step 2: Add JUnit 5 Dependency in pom.xml**
+
+Open `pom.xml` and replace/add dependencies:
+
+```xml id="x4rjz8"
+<dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+
+Also add plugin:
+
+```xml id="2v5g1n"
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0</version>
+        </plugin>
+    </plugins>
+</build>
+```
+
+---
+
+## **Step 3: Create CalculatorService Class**
+
+Create file:
+`src/main/java/com/example/CalculatorService.java`
+
+```java id="1mj5xg"
+package com.example;
+
+public class CalculatorService {
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+}
+```
+
+---
+
+## **Step 4: Write Test Cases using JUnit 5**
+
+Create file:
+`src/test/java/com/example/CalculatorServiceTest.java`
+
+```java id="qk8z2d"
+package com.example;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CalculatorServiceTest {
+
+    CalculatorService calc = new CalculatorService();
+
+    @Test
+    void testMultiply() {
+        assertEquals(6, calc.multiply(2, 3));
+    }
+
+    @Test
+    void testMultiplyWithZero() {
+        assertEquals(0, calc.multiply(5, 0));
+    }
+
+    @Test
+    void testMultiplyNegative() {
+        assertEquals(-6, calc.multiply(2, -3));
+    }
+}
+```
+
+---
+
+## **Step 5: Execute using Maven Command**
+
+Run:
+
+```id="ru3p6h"
+mvn test
+```
+
+---
+
+## **Step 6: Output**
+
+Expected output:
+
+```id="v2y9mf"
+[INFO] Running com.example.CalculatorServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+```
+
+---
+
+## **Step 7: Project Structure**
+
+```id="7p4lxs"
+calculator-app/
+ ├── pom.xml
+ └── src
+     ├── main
+     │   └── java
+     │       └── com/example/CalculatorService.java
+     └── test
+         └── java
+             └── com/example/CalculatorServiceTest.java
+```
+
+---
+
+## **Result**
+
+The Maven project was successfully created. JUnit 5 test cases were written and executed, and the CalculatorService class was tested successfully.
+
+---
+
+If you want next:
+✅ Short 10-mark answer
+✅ Viva questions (very important)
+✅ Jenkins + Maven integration version
+
+Just tell 👍
